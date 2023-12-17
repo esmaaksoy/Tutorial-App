@@ -13,8 +13,13 @@ const AddTutorial = ({getTutorials}) => {
    
   }
   const postTutorial = async (newTutorial)=>{
-    const url = "https://tutorial-api.fullstack.clarusway.com/tutorials"
-    const res = await axios.post(url,newTutorial)
+    try {
+      const url = "https://tutorial-api.fullstack.clarusway.com/tutorials"
+      const res = await axios.post(url,newTutorial)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
     getTutorials()
   }
 
