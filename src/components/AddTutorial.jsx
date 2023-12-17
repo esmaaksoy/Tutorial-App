@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from "axios";
-const AddTutorial = () => {
+const AddTutorial = ({getTutorials}) => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
 
@@ -8,10 +8,14 @@ const AddTutorial = () => {
     e.preventDefault()
     const newTutorial = {title, description}
     postTutorial(newTutorial)
+    setTitle("")
+    setDescription("")
+   
   }
   const postTutorial = async (newTutorial)=>{
     const url = "https://tutorial-api.fullstack.clarusway.com/tutorials"
     const res = await axios.post(url,newTutorial)
+    getTutorials()
   }
 
   return (
