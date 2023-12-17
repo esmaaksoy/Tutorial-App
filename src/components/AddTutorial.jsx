@@ -6,10 +6,12 @@ const AddTutorial = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const newTutorial = {title, description}
+    postTutorial(newTutorial)
   }
-  const postTutorial = async ()=>{
+  const postTutorial = async (newTutorial)=>{
     const url = "https://tutorial-api.fullstack.clarusway.com/tutorials"
-    const res = await axios.post(url)
+    const res = await axios.post(url,newTutorial)
   }
 
   return (
