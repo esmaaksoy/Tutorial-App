@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [tutorials, setTutorials] = useState([])
   const getTutorials = async () => {
-    const url = "https://tutorial-api.fullstack.clarusway.com/tutorials"
-    const res = await axios(url);
+  
+    const res = await axios(process.env.url);
     setTutorials(res.data);
   };
   useEffect(()=>{
