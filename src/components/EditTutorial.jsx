@@ -15,14 +15,15 @@ const EditTutorial = ({ editData, getTutorials }) => {
     try {
       const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
       await axios.put(`${URL}${id}/`, tutorial);
+      getTutorials();
     } catch (error) {
       console.log(error);
     }
-    getTutorials();
   };
+
   const handleSubmit = (e)=>{
 e.preventDefault()
-editTutorial(title, description)
+editTutorial({title, description})
   }
   return (
     <>
