@@ -13,8 +13,8 @@ const EditTutorial = ({ editData, getTutorials }) => {
   }, [oldTitle, oldDescription]);
   const editTutorial = async (tutorial) => {
     try {
-      const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
-      await axios.put(`${URL}${id}/`, tutorial);
+     
+      await axios.put(`${process.env.REACT_APP_URL}${id}/`, tutorial);
       getTutorials();
     } catch (error) {
       console.log(error);

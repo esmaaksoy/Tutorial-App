@@ -15,8 +15,8 @@ const AddTutorial = ({ getTutorials }) => {
 
   const postTutorial = async (newTutorial) => {
     try {
-      const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
-      const res = await axios.post(URL, newTutorial)
+   
+      const res = await axios.post(process.env.REACT_APP_URL, newTutorial)
       console.log(res)
     } catch (error) {
       console.log(error)
