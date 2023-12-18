@@ -80,7 +80,7 @@ editTutorial(title, description)
                     required
                   />
                 </div>
-                <button type="submit" className="btn btn-danger mb-4">
+                <button type="submit" className="btn btn-danger mb-4"   data-bs-dismiss="modal">
                   Submit
                 </button>
               </form>
