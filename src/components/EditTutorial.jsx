@@ -1,17 +1,29 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import axios from "axios"
+const EditTutorial = ({ editData, getTutorials }) => {
+  const {id, title: oldTitle, description: oldDescription } = editData;
 
-const EditTutorial = ({ editData }) => {
-  const { title: oldTitle, description: oldDescription } = editData
-
-  const [title, setTitle] = useState(oldTitle)
-  const [description, setDescription] = useState(oldDescription)
+  const [title, setTitle] = useState(oldTitle);
+  const [description, setDescription] = useState(oldDescription);
 
   //? componentDidUpdate
   useEffect(() => {
-    setTitle(oldTitle)
-    setDescription(oldDescription)
-  }, [oldTitle, oldDescription])
-
+    setTitle(oldTitle);
+    setDescription(oldDescription);
+  }, [oldTitle, oldDescription]);
+  const editTutorial = async (tutorial) => {
+    try {
+      const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+      await axios.put(`${URL}${id}/`, tutorial);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
+  const handleSubmit = (e)=>{
+e.preventDefault()
+editTutorial(title, description)
+  }
   return (
     <>
       <div
@@ -33,13 +45,13 @@ const EditTutorial = ({ editData }) => {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 onClick={() => {
-                  setTitle("")
-                  setDescription("")
+                  setTitle("");
+                  setDescription("");
                 }}
               />
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit ={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">
                     Title
@@ -77,7 +89,7 @@ const EditTutorial = ({ editData }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default EditTutorial
+export default EditTutorial;
