@@ -1,17 +1,19 @@
-# API Base URLs
+# Tutorial App
+This project is a website created using React and Bootstrap.You can add new information and delete or edit the added information.
+The project utilizes the Axios library and HTTP requests (GET, POST, PUL, DELETE)
 
-## https://tutorial-api.fullstack.clarusway.com/
+## Screenshots
+![Project snapshot](./TUTORİAL.gif) 
+[Tutorial App Live Page](https://tutorial-esma.netlify.app/)
 
-### API ENDPOINTS
+## Tech/framework used
+<b>Built with</b> <br>
+<a href="#"><img src="https://w7.pngwing.com/pngs/403/269/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail.png" alt="react" width="40"/></a> 
+<a href="#"><img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="bootstrap" width="40"/></a> 
 
-- GET `tutorials/` get all Tutorials
-- GET `tutorials/:id/` get Tutorial by id
-- POST `tutorials/` add new Tutorial
-- PUT `tutorials/:id/` update Tutorial by id
-- PATCH `tutorials/:id/` patch Tutorial by id
-- DELETE `tutorials/:id/` remove Tutorial by id
-- DELETE `tutorials/` remove all Tutorials
+## Description
+In the project directory, you can run:
+### `npm start`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# Deployed Frontend
-
-## https://tutorial.fullstack.clarusway.com/
