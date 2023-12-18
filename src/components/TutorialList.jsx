@@ -2,17 +2,22 @@ import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
 import axios from "axios"
 import EditTutorial from "./EditTutorial"
-const TutorialList = ({tutorials, getTutorials}) => {
- const deleteTutorial = async(id)=>{
-  try {
-    const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
- await axios.delete(`${URL}${id}/`)
-  } catch (error) {
-    console.log(error)
-  }
-  
-getTutorials()
- }
+import { useState } from "react"
+
+const TutorialList = ({ tutorials, getTutorials }) => {
+  const [editData, setEditData] = useState("")
+ 
+  const deleteTutorial = async(id)=>{
+    try {
+      const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
+   await axios.delete(`${URL}${id}/`)
+    } catch (error) {
+      console.log(error)
+    }
+  getTutorials()
+   }
+  console.log(editData)
+
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -39,12 +44,15 @@ getTutorials()
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#open-modal"
+                    onClick={() => setEditData(item)}
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    onClick={()=>deleteTutorial(id)}
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
@@ -52,7 +60,7 @@ getTutorials()
           })}
         </tbody>
       </table>
-      <EditTutorial/>
+      <EditTutorial editData={editData} />
     </div>
   )
 }
